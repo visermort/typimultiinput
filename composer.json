@@ -1,0 +1,13 @@
+{
+    "name": "visermort/typimultiinput",
+    "description": "Extension for TypiCMS. For making multi value fields.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andrey",
+            "email": "oxygenn@list.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

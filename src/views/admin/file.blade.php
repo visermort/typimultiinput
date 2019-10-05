@@ -1,0 +1,1 @@
+<file-field type="document" field="{{ $attribute }}" data="{{ $value }}"></file-field>

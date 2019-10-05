@@ -1,0 +1,40 @@
+$borderStyle: 1px solid rgba(0, 0, 0, 0.125);
+
+.multiinput {
+
+  &-body {
+    width: 100%;
+    border: $borderStyle;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  &-elem-add {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  &-elem-remove {
+    color: red;
+    cursor: pointer;
+    text-align: right;
+    i {
+      margin: 6px 6px 0 0;
+    }
+  }
+  table {
+
+    tr {
+      &:not(:last-child) {
+        border-bottom: $borderStyle;
+      }
+      td {
+        vertical-align: top;
+      }
+    }
+  }
+}
