@@ -10,7 +10,6 @@ abstract class CellBase
 
     protected $parent;
 
-    //public function __construct($parent, $config, $value, $attributeName, $cssClassName)
     public function __construct($parent, $config, $value)
     {
         $this->parent = $parent;
@@ -35,5 +34,6 @@ abstract class CellBase
             $out = $this->value->$locale;
             return $out;
         }
+        return $this->value;
     }
 }

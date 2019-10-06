@@ -1,7 +1,7 @@
 ## Typi MultiInput
 
 
-Extension for TypiSMS.
+Extension for TypiCMS.
 
 For making multi-value fields with recursion.
 
@@ -37,7 +37,7 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
 
     ],
    ```
-4. Publish MultiInput parts to project directory
+4. Publish MultiInput parts to project directory (config, views, scss, js)
 
     ````
     php artisan vendor:publish --provider="visermort\typimultiinput\MultiInputProvider"
@@ -57,7 +57,7 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
 
    ````
    ...
-   @import 'admin/multiinput';
+   @import 'public/multiinput';
    ...    
         
    ```` 
@@ -92,9 +92,9 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
     ...
 
     ```` 
-    argument1 - attribute name<br>
-    argument2 - configuration name<br>
-    argument2 - Model
+    argument1 "advantages" - Model attribute name<br>
+    argument2 "advantages" - configuration name<br>
+    argument2 $model - Model
     
     blade templates for admin - /resources/views/vendor/multiinput/admin/
     
@@ -116,15 +116,15 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
      ...
  
      ```` 
-    arguments4 - params. Not required 
+    argument4 - params. Not required 
 
     Default templates in /resources/views/vendor/multiinput/public/<attribute name>. Can be override in params
     ```` 
     [
         'templates' => [
-            'directory' => path do templates from /resources/views/, defalult 'vendor.multiinput.public.',
+            'directory' => path do templates from /resources/views/, defalult 'vendor.multiinput.public.<arrtibute name>.',
             'main' => main template, default 'main',
-            'item' => template for row, default 'item',
+            'item' => template for item, default 'item',
             'image' => template for image, default 'image',
             'file' => template for document, default 'file',
         ]

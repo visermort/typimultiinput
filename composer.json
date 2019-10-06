@@ -1,7 +1,8 @@
 {
     "name": "visermort/typimultiinput",
     "description": "Extension for TypiCMS. For making multi value fields.",
-    "type": "library",
+    "license": "MIT",
+    "keywords": ["cms", "multilingual", "laravel", "typi", "extension", "multiinput"],
     "authors": [
         {
             "name": "Andrey",
@@ -9,5 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": "^7.2"
+    }
 }
