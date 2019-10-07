@@ -1,11 +1,11 @@
 ## Typi MultiInput
 
 
-Extension for TypiCMS.
+Extension for [TypiCMS](https://github.com/TypiCMS/Base).
 
 For making multi-value fields with recursion.
 
-TypiCMS is a modular multilingual content management system built with [Laravel 6](https://laravel.com). Out of the box you can manage pages, events, news, places, menus, translations, etc.
+[TypiCMS](https://github.com/TypiCMS/Base) is a modular multilingual content management system built with [Laravel 6](https://laravel.com). Out of the box you can manage pages, events, news, places, menus, translations, etc.
 
 #### Installation
 
