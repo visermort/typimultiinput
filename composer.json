@@ -17,5 +17,15 @@
         "psr-4": {
             "Visermort\\TypiMultiInput\\": "src/MultiInput"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Visermort\\TypiMultiInput\\MultiInputProvider"
+            ],
+            "aliases": {
+                "MultiInput":"Visermort\\TypiMultiInput\\MultiInput"
+            }
+        }
     }
 }
