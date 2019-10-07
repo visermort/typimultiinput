@@ -58,7 +58,7 @@ For making multi-value fields with recursion.
 
    ````
    Schema::table('products', function (Blueprint $table) {
-       $table->string('advantages')->nullable(true);
+       $table->json('advantages')->nullable(true);
    });
    ```` 
   
