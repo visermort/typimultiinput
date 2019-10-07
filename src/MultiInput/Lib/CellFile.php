@@ -1,9 +1,9 @@
 <?php
 
-namespace visermort\typimultiinput\lib;
+namespace Visermort\TypiMultiInput\Lib;
 
 use TypiCMS\Modules\Files\Models\File;
-use visermort\typimultiinput\Multiinput;
+use Visermort\TypiMultiInput\Multiinput;
 
 class CellFile extends CellBase
 {

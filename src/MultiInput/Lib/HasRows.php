@@ -1,8 +1,8 @@
 <?php
 
-namespace visermort\typimultiinput\lib;
+namespace Visermort\TypiMultiInput\Lib;
 
-use visermort\typimultiinput\Multiinput;
+use Visermort\TypiMultiInput\MultiInput;
 
 trait HasRows
 {

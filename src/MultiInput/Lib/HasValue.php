@@ -1,8 +1,6 @@
 <?php
 
-namespace visermort\typimultiinput\lib;
-
-use visermort\typimultiinput\Multiinput;
+namespace Visermort\TypiMultiInput\Lib;
 
 trait HasValue
 {

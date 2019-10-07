@@ -1,6 +1,6 @@
 <?php
 
-namespace visermort\typimultiinput;
+namespace Visermort\TypiMultiInput;
 
 use Illuminate\Support\ServiceProvider;
 
