@@ -14,36 +14,16 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
 2. Install TypiMultiInput
 
    ````
-   composer .....
+   composer require visermort/typimultiinput
    ````
     
-3. Write configuration in /config/app.php
-
-   ```
-    'providers' => [
-
-        ...
-        
-        visermort\typimultiinput\MultiInputProvider::class,
-
-
-    ],
-
-    'aliases' => [
-        ...
-
-        'MultiInput' => visermort\typimultiinput\MultiInput::class,
-
-
-    ],
-   ```
-4. Publish MultiInput parts to project directory (config, views, scss, js)
+3. Publish MultiInput files to project directory (config, views, scss, js)
 
     ````
-    php artisan vendor:publish --provider="visermort\typimultiinput\MultiInputProvider"
+    php artisan vendor:publish --provider="Visermort\TypiMultiInput\MultiInputProvider"
     
     ```` 
-5. Write links to scss
+4. Write links to scss
 
    /resources/scss/admin.scss
 
@@ -61,7 +41,7 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
    ...    
         
    ```` 
-6. Build assets
+5. Build assets
 
    ````
    npm run dev (prod, watch..)
@@ -70,11 +50,11 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
     
 #### Usage
 
-1. There is sample config "advantages" in /config/multiinput.php.
+1. There is sample configuration named "advantages" in /config/multiinput.php.
 
    Make your configurations here.
 
-2. Make field in table by migration.
+2. Create field in table by migration.
 
    ````
    Schema::table('products', function (Blueprint $table) {
@@ -96,7 +76,7 @@ TypiCMS is a modular multilingual content management system built with [Laravel 
     argument2 "advantages" - configuration name<br>
     argument2 $model - Model
     
-    blade templates for admin - /resources/views/vendor/multiinput/admin/
+    blade templates for admin in directory /resources/views/vendor/multiinput/admin/
     
 4. Write in public template     
 
