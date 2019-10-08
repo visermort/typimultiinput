@@ -15,16 +15,22 @@ return [
     'advantages' => [
         "single-row" => false,
         "title" => "Advantages",
+//        "order" => [
+//            ["sort" => "ASC"],
+//            "title"
+//        ],
         "columns" => [
             [
                 "name" => "title",
                 "title" => "Title",
-                "type" => "Varchar"
+                "type" => "Varchar",
+                "translatable" => true
             ],
             [
                 "name" => "description",
                 "title" => "Description",
-                "type" => "Text"
+                "type" => "Text",
+                "translatable" => true
             ],
             [
                 "name" => "status",
@@ -38,8 +44,8 @@ return [
                 "type" => "Date"
             ],
 //            [
-//                "name" => "start_datetime",
-//                "title" => "Start time",
+//                "name" => "end_date",
+//                "title" => "End date",
 //                "type" => "DateTime"
 //            ],
             [
@@ -52,6 +58,17 @@ return [
                 "title" => "Document pdf",
                 "type" => "File"
             ],
+//            [
+//                "name" => "sort",
+//                "title" => "Sort Order",
+//                "type" => "Number"
+//            ],
+//            [
+//                "name" => "viewed",
+//                "title" => "Viewed",
+//                "type" => "Boolean",
+//                "translatable" => true
+//            ],
             [
                 "name" => 'features',
                 'title'=> 'Features',
@@ -60,14 +77,16 @@ return [
                     [
                         "name" => "feature_title",
                         "title" => "Title",
-                        "type" => "Varchar"
+                        "type" => "Varchar",
+                        "translatable" => true
                     ],
                     [
                         "name" => "feature_image",
                         "title" => "Image",
                         "type" => "Image"
                     ],
-                ]
+                ],
+                //"order" => "feature_title",
             ],
 
         ]

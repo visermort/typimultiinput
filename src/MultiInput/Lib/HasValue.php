@@ -5,7 +5,6 @@ namespace Visermort\TypiMultiInput\Lib;
 trait HasValue
 {
     public $title;
-    public $data;
     public $value;
     public $attributeName;
     public $config;
@@ -15,7 +14,6 @@ trait HasValue
     {
         $this->title = $title;
         $this->cssClassName = $cssClassName;
-        $this->data = json_encode($value);
         $this->value = $value;
         $this->attributeName = $attributeName;
         $this->config = $config;

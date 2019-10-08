@@ -3,12 +3,16 @@
 namespace Visermort\TypiMultiInput\Lib;
 
 use TranslatableBootForm;
+use BootForm;
 
 class CellDropdown extends CellBase
 {
 
     public function render()
     {
+        if (empty($this->config['translatable'])) {
+            return BootForm::select($this->title, $this->attributeName, $this->config['items']);
+        }
         return TranslatableBootForm::select($this->title, $this->attributeName, $this->config['items']);
     }
 

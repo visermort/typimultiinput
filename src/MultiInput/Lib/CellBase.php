@@ -29,11 +29,18 @@ abstract class CellBase
         if (empty($this->value)) {
             return '';
         }
-        $locale = App::getLocale();
-        if (is_object($this->value) && property_exists($this->value, $locale)) {
-            $out = $this->value->$locale;
-            return $out;
+        if (!empty($this->config['translatable']) && is_object($this->value)) {
+            $locale = App::getLocale();
+            if (property_exists($this->value, $locale)) {
+                $out = $this->value->$locale;
+                return $out;
+            }
         }
         return $this->value;
+    }
+
+    public function getValue()
+    {
+        return is_object($this->value) || is_array($this->value) ? json_encode($this->value) : $this->value;
     }
 }

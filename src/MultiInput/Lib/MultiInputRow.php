@@ -17,11 +17,14 @@ class MultiInputRow
     protected $cellTypes = [
         'varchar' => CellVarchar::class,
         'text' => CellText::class,
+        'number' => CellNumber::class,
         'dropdown' => CellDropdown::class,
         'date' => CellDate::class,
-        'multiinput' => CellMultiinput::class,
+        'datetime' => CellDateTime::class,
         'image' => CellImage::class,
         'file' => CellFile::class,
+        'boolean' => CellCheckBox::class,
+        'multiinput' => CellMultiinput::class,
     ];
 
     public function __construct($parent, $config, $index, $value)
@@ -52,7 +55,7 @@ class MultiInputRow
         foreach ($this->columns as $cell) {
             $out .= view($templates['element'], [
                 'element' => $cell->render(),
-                'value' => $cell->data,
+                'value' => $cell->getValue(),
                 'attribute' => $cell->attributeName,
             ]);
         }

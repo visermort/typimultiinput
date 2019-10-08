@@ -34,6 +34,50 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
       }
       td {
         vertical-align: top;
+
+        input[type="checkbox"] {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          margin-left: 20px;
+        }
+        input[type="checkbox"] + label {
+          position: relative;
+          padding-left: 25px;
+          cursor: pointer;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            border: $borderStyle;
+            background: #fff;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            width: 14px;
+            height: 6px;
+            border-left: 2px solid #000;
+            border-bottom: 2px solid #000;
+            transform: rotate(-45deg);
+            background: #fff;
+            //transition: .2s;
+            opacity: 0;
+          }
+        }
+        input[type="checkbox"]:checked + label {
+          &:after {
+            opacity: 1;
+          }
+        }
       }
     }
   }

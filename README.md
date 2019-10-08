@@ -7,7 +7,7 @@ For making multi-value fields with recursion.
 
 [TypiCMS](https://github.com/TypiCMS/Base) is a modular multilingual content management system built with [Laravel 6](https://laravel.com). Out of the box you can manage pages, events, news, places, menus, translations, etc.
 
-#### Installation
+### Installation
 
 1. Install TypiCMS 
 
@@ -48,7 +48,7 @@ For making multi-value fields with recursion.
    
    ```` 
     
-#### Usage
+### Usage
 
 1. There is sample configuration named "advantages" in /config/multiinput.php.
 
@@ -74,7 +74,7 @@ For making multi-value fields with recursion.
     ```` 
     argument1 "advantages" - Model attribute name<br>
     argument2 "advantages" - configuration name<br>
-    argument2 $model - Model
+    argument3 $model - Model
     
     blade templates for admin in directory /resources/views/vendor/multiinput/admin/
     
@@ -111,12 +111,16 @@ For making multi-value fields with recursion.
     ]  
     ```` 
     
- #### Available field types
+ ### Available field types
  
-    Varchar
-    Text
-    Date
-    Dropdown
-    Image
-    File
-    Multiinput - embedder multiinput field
+     Varchar
+     Text
+     Date
+     DateTime
+     Number
+     Dropdown
+     Boolean
+     Image
+     File
+     Multiinput - embedder multiinput field
+ 

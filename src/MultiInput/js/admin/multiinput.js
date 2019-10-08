@@ -10,13 +10,19 @@
                     for (lang in data) {
                         value = data[lang];
                         currentAttribute = attribute+'['+lang+']';
-                            element.find('input[name="' + currentAttribute + '"').val(value);
-                            element.find('textarea[name="' + currentAttribute + '"').html(value);
-                            element.find('select[name="' + currentAttribute + '"').val(value);
+                        copyElementValue(element, currentAttribute, value);
                     }
+                } else {
+                    copyElementValue(element, attribute, data);
                 }
             }
         });
+    }
+    function copyElementValue(element, attribute, value) {
+        element.find('input[name="' + attribute + '"]:not([type="checkbox"])').val(value);
+        element.find('textarea[name="' + attribute + '"]').html(value);
+        element.find('select[name="' + attribute + '"]').val(value);
+        element.find('input[type="checkbox"][name="'+ attribute + '"]').prop('checked', value);
     }
 
     $('body').on('click', '.multiinput-elem-add', function(){
