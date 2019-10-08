@@ -2,18 +2,19 @@
 
 namespace Visermort\TypiMultiInput\Lib;
 
-use TranslatableBootForm;
+//use TranslatableBootForm;
 use BootForm;
 
 class CellText extends CellBase
 {
 
-    public function render()
+    public function renderTranslatable($value = null, $language = false)
     {
-        if (empty($this->config['translatable'])) {
-            return BootForm::textarea($this->title, $this->attributeName)->rows(4);
+        if ($language) {
+            return BootForm::textarea($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
+                ->rows(4)->value($value);
         }
-        return TranslatableBootForm::textarea($this->title, $this->attributeName)->rows(4);
+        return BootForm::textarea($this->title, $this->attributeName)->rows(4)->value($value);
     }
 
 

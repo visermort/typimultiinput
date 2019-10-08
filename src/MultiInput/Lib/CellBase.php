@@ -18,7 +18,26 @@ abstract class CellBase
         $this->initValueOwner($config['title'], $value, $attributeName, $config, $cssClassName);
     }
 
-    abstract public function render();
+    public function render()
+    {
+        $languages = config('translatable-bootforms.locales');
+        $out = [];
+        if (!empty($this->config['translatable'])) {
+            foreach ($languages as $language) {
+                $value = !empty($this->value)  && property_exists($this->value, $language) ? $this->value->$language : false;
+                $element = $this->renderTranslatable($value, $language);
+                $out[] = $element;
+            }
+        } else {
+            $value = is_array($this->value) ? print_r($this->value, 1) : $this->value;//todo test
+            $out = $this->renderTranslatable($value);
+            $out = [$out];
+        }
+        return implode('
+         ', $out);
+    }
+
+    abstract protected function renderTranslatable($value = null, $language = false);
 
     /**
      * @param bool $key - returns original value if true
@@ -39,8 +58,4 @@ abstract class CellBase
         return $this->value;
     }
 
-    public function getValue()
-    {
-        return is_object($this->value) || is_array($this->value) ? json_encode($this->value) : $this->value;
-    }
 }

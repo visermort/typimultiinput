@@ -1,3 +1,3 @@
-<td data-value="{{ $value }}" data-attribute="{{ $attribute }}">
+<td data-attribute="{{ $attribute }}">
     {!! $element !!}
 </td>

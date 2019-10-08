@@ -12,7 +12,7 @@ class CellMultiinput extends CellBase
         $this->makeRows($this->config['columns'], $this->value, $this);
     }
 
-    public function render()
+    protected function renderTranslatable($value = null, $language = false)
     {
         return $this->view();
     }

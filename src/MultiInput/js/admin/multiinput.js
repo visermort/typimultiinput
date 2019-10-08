@@ -1,30 +1,4 @@
 (function(){
-    function copyValues() {
-        $('.multiinput td').each(function (index, element) {
-            element = $(element);
-            var data = element.data('value');
-            var attribute = element.data('attribute');
-            if (data && attribute) {
-                var lang, currentAttribute, value;
-                if (typeof(data) == 'object') {
-                    for (lang in data) {
-                        value = data[lang];
-                        currentAttribute = attribute+'['+lang+']';
-                        copyElementValue(element, currentAttribute, value);
-                    }
-                } else {
-                    copyElementValue(element, attribute, data);
-                }
-            }
-        });
-    }
-    function copyElementValue(element, attribute, value) {
-        element.find('input[name="' + attribute + '"]:not([type="checkbox"])').val(value);
-        element.find('textarea[name="' + attribute + '"]').html(value);
-        element.find('select[name="' + attribute + '"]').val(value);
-        element.find('input[type="checkbox"][name="'+ attribute + '"]').prop('checked', value);
-    }
-
     $('body').on('click', '.multiinput-elem-add', function(){
         var tbody = $(this).closest('.multiinput').find('table tbody');
         if (tbody.length) {
@@ -88,7 +62,5 @@
         $(row).find('textarea').html('');
         $(row).find('.multiinput tbody tr:not(:first)').remove();
     }
-
-    copyValues();
 
 })();

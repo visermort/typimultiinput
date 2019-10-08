@@ -8,12 +8,14 @@ use BootForm;
 class CellVarchar extends CellBase
 {
 
-    public function render()
+    protected function renderTranslatable($value = null, $language = false)
     {
-        if (empty($this->config['translatable'])) {
-            return BootForm::text($this->title, $this->attributeName);
+
+        if ($language) {
+            return BootForm::text($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
+                ->data('language', $language)->value($value);
         }
-        return TranslatableBootForm::text($this->title, $this->attributeName);
+        return BootForm::text($this->title, $this->attributeName)->value($value);
     }
 
 }

@@ -2,15 +2,19 @@
 
 namespace Visermort\TypiMultiInput\Lib;
 
-use TranslatableBootForm;
+//use TranslatableBootForm;
 use BootForm;
 
 class CellNumber extends CellBase
 {
 
-    public function render()
+    public function renderTranslatable($value = null, $language = false)
     {
-        return BootForm::number($this->title, $this->attributeName)->rows(4);
+        if ($language) {
+            return BootForm::number($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
+                ->value($value);
+        }
+        return BootForm::number($this->title, $this->attributeName)->value($value);
     }
 
 

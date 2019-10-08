@@ -8,14 +8,23 @@ use Visermort\TypiMultiInput\Multiinput;
 class CellFile extends CellBase
 {
 
-    public function render()
+    protected function renderTranslatable($value = null, $language = false)
     {
-        $file = null;
-        if ($this->value > 0) {
-            $file = File::find($this->value);
-        }
         $templates = Multiinput::getTemplates();
-        return view($templates['file'], ['attribute' => $this->attributeName, 'value' => $file]);
+        $file = null;
+        if ($value) {
+            $file = File::find($value);
+        }
+        //$title = $language ? $this->title.' ('.$language.')' : $this->title;
+        $attribute = $language ? $this->attributeName.'['.$language.']' : $this->attributeName;
+        return view(
+            $templates['file'],
+            [
+                //'title' => $title,
+                'attribute' => $attribute,
+                'value' => $file
+            ]
+        );
     }
 
     public function publish($key = false)

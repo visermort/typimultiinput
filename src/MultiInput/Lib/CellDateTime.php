@@ -7,9 +7,13 @@ use BootForm;
 class CellDateTime extends CellBase
 {
 
-    public function render()
+    protected function renderTranslatable($value = null, $language = false)
     {
-        return BootForm::datetimelocal($this->title, $this->attributeName);
+        if ($language) {
+            return BootForm::datetimelocal($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
+                ->value($value);
+        }
+        return BootForm::datetimelocal($this->title, $this->attributeName)->value($value);
     }
 
 }

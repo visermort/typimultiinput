@@ -2,18 +2,19 @@
 
 namespace Visermort\TypiMultiInput\Lib;
 
-use TranslatableBootForm;
+//use TranslatableBootForm;
 use BootForm;
 
 class CellDate extends CellBase
 {
 
-    public function render()
+    protected function renderTranslatable($value = null, $language = false)
     {
-        if (empty($this->config['translatable'])) {
-            return BootForm::date($this->title, $this->attributeName);
+        if ($language) {
+            return BootForm::date($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
+                ->value($value);
         }
-        return TranslatableBootForm::date($this->title, $this->attributeName);
+        return BootForm::date($this->title, $this->attributeName)->value($value);
     }
 
 }

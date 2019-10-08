@@ -55,7 +55,6 @@ class MultiInputRow
         foreach ($this->columns as $cell) {
             $out .= view($templates['element'], [
                 'element' => $cell->render(),
-                'value' => $cell->getValue(),
                 'attribute' => $cell->attributeName,
             ]);
         }
