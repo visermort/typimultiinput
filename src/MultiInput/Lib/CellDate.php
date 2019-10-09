@@ -12,7 +12,7 @@ class CellDate extends CellBase
     {
         if ($language) {
             return BootForm::date($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
-                ->value($value);
+                ->data('translatable', 1)->data('language', $language)->value($value);
         }
         return BootForm::date($this->title, $this->attributeName)->value($value);
     }

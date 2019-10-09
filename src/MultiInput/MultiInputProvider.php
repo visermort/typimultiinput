@@ -37,7 +37,8 @@ class MultiInputProvider extends ServiceProvider
         ], 'scss');
 
         $this->publishes([
-            __DIR__.'/js/admin' => resource_path('js/admin')
+            __DIR__.'/js/admin' => resource_path('js/admin'),
+            __DIR__.'/js/components' => resource_path('js/components')
         ], 'js');
 
     }

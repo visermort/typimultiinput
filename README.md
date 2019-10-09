@@ -23,7 +23,7 @@ For making multi-value fields with recursion.
     php artisan vendor:publish --provider="Visermort\TypiMultiInput\MultiInputProvider"
     
     ```` 
-4. Write links to scss
+4. Write links to scss, js
 
    /resources/scss/admin.scss
 
@@ -38,6 +38,24 @@ For making multi-value fields with recursion.
    ````
    ...
    @import 'public/multiinput';
+   ...    
+        
+   ```` 
+   /resources/js/admin.js - import vue.js component
+
+   ````
+   ...
+   import MultiInputFileField from './components/MultiInputFileField.vue';
+   ...
+   ...
+   new Vue({
+       i18n,
+       components: {
+            ...
+            ...
+            MultiInputFileField,
+            ...
+   
    ...    
         
    ```` 
@@ -123,4 +141,6 @@ For making multi-value fields with recursion.
      Image
      File
      Multiinput - embedder multiinput field
+     
+     All fields are multilingual.
  

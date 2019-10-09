@@ -1,4 +1,20 @@
 (function(){
+
+    $('body').on('click', '.btn-lang-js', function() {
+
+        var locale = $(this).data('locale');
+        if (locale == 'all') {
+            $('.multiinput .form-group').show();
+        } else {
+            $('.multiinput .form-group')
+                .has('[data-translatable="1"]')
+                .hide()
+                .has('[data-language="' + locale + '"]')
+                .show();
+        }
+    });
+
+
     $('body').on('click', '.multiinput-elem-add', function(){
         var tbody = $(this).closest('.multiinput').find('table tbody');
         if (tbody.length) {

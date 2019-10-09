@@ -1,1 +1,0 @@
-<file-field type="image" field="{{ $attribute }}" data="{{ $value }}"></file-field>

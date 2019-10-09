@@ -15,14 +15,17 @@ class CellImage extends CellBase
         if ($value) {
             $file = File::find($value);
         }
-        //$title = $language ? $this->title.' ('.$language.')' : $this->title;
+        $title = $language ? $this->title.' ('.$language.')' : $this->title;
         $attribute = $language ? $this->attributeName.'['.$language.']' : $this->attributeName;
         return view(
-            $templates['image'],
+            $templates['file'],
             [
-                //'title' => $title,
+                'type' => 'image',
+                'label' => $title,
                 'attribute' => $attribute,
-                'value' => $file
+                'value' => $file,
+                'language' => $language ? $language : null,
+                'translatable' => $language ? 1 : null,
             ]
         );
     }

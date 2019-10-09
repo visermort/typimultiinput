@@ -13,7 +13,7 @@ class CellVarchar extends CellBase
 
         if ($language) {
             return BootForm::text($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
-                ->data('language', $language)->value($value);
+                ->data('translatable', 1)->data('language', $language)->value($value);
         }
         return BootForm::text($this->title, $this->attributeName)->value($value);
     }

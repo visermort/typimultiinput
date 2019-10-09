@@ -15,7 +15,7 @@ class CellDropdown extends CellBase
                 $this->title.' ('.$language.')',
                 $this->attributeName.'['.$language.']',
                 $this->config['items']
-            )->select($value);
+            )->data('translatable', 1)->data('language', $language)->select($value);
         }
         return BootForm::select($this->title, $this->attributeName, $this->config['items'])->select($value);
     }

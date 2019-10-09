@@ -12,7 +12,7 @@ class CellNumber extends CellBase
     {
         if ($language) {
             return BootForm::number($this->title.' ('.$language.')', $this->attributeName.'['.$language.']')
-                ->value($value);
+                ->data('translatable', 1)->data('language', $language)->value($value);
         }
         return BootForm::number($this->title, $this->attributeName)->value($value);
     }

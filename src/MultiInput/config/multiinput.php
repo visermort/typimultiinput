@@ -41,7 +41,8 @@ return [
             [
                 "name" => "start_date",
                 "title" => "Start date",
-                "type" => "Date"
+                "type" => "Date",
+                "translatable" => true
             ],
 //            [
 //                "name" => "end_date",
@@ -51,12 +52,14 @@ return [
             [
                 "name" => "advantage_image",
                 "title" => "Image",
-                "type" => "Image"
+                "type" => "Image",
+                "translatable" => true
             ],
             [
                 "name" => "document",
                 "title" => "Document pdf",
-                "type" => "File"
+                "type" => "File",
+                "translatable" => true
             ],
 //            [
 //                "name" => "sort",
@@ -76,13 +79,13 @@ return [
                 'columns' => [
                     [
                         "name" => "feature_title",
-                        "title" => "Title",
+                        "title" => "Feature Title",
                         "type" => "Varchar",
                         "translatable" => true
                     ],
                     [
                         "name" => "feature_image",
-                        "title" => "Image",
+                        "title" => "Feature Image",
                         "type" => "Image"
                     ],
                 ],
