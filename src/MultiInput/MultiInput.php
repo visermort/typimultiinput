@@ -63,12 +63,11 @@ class MultiInput
      */
     public static function publish($attribute, $configName, $model, $options = [])
     {
-
+        self::$admin = false;
         $self = self::make($attribute, $configName, $model);
         if ($self->errors || !$self->value) {
             return '';
         }
-        self::$admin = false;
         self::$templates['public']['directory'] =
             self::$templates['public']['directory'] . $attribute . '.';//default directory  multi-input.public.<attribute>.
         if (!empty($options['templates'])) {

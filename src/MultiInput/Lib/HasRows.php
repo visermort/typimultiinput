@@ -7,6 +7,7 @@ use Visermort\TypiMultiInput\MultiInput;
 trait HasRows
 {
     public $rows = [];
+    protected $sortableTypes = ['varchar', 'text', 'dropdown', 'numeric', 'date', 'datetime', 'boolean'];
 
     public function makeRows($columnsConfig, $values, $parent)
     {
@@ -20,6 +21,9 @@ trait HasRows
                     break;
                 }
             }
+        }
+        if (!MultiInput::$admin) {
+            $this->sort();
         }
     }
 
@@ -37,6 +41,34 @@ trait HasRows
             'className' => $this->cssClassName,
             'attribute' => $this->attributeName,
         ]);
+    }
+
+    private function sort()
+    {
+        if (empty($this->config['order']) || count($this->rows) < 2) {
+            return ;
+        }
+        usort($this->rows, function ($row, $nextRow) {
+            $orders = $this->config['order'];
+            $sortResult = 0;
+            foreach ($orders as $order => $direction) {
+                $order = strtolower($order);
+                $direction = strtolower($direction) == 'desc' ? 'desc' : 'asc';
+                if (property_exists($row, $order) &&
+                    in_array(strtolower($row->$order->config['type']), $this->sortableTypes)) {
+                    $value = $row->$order->publish();
+                    $nextValue = $nextRow->$order->publish();
+                    if ($value > $nextValue) {
+                        $sortResult = $direction == 'asc' ? 1 : -1;
+                    } elseif ($value < $nextValue) {
+                        $sortResult =  $direction == 'asc' ? -1 : 1;
+                    }
+                }
+                if ($sortResult != 0) {
+                    return $sortResult;
+                }
+            }
+        });
     }
 
 }

@@ -15,10 +15,10 @@ return [
     'advantages' => [
         "single-row" => false,
         "title" => "Advantages",
-//        "order" => [
-//            ["sort" => "ASC"],
-//            "title"
-//        ],
+        "order" => [
+            ["sort" => "ASC"],
+            ["title" => "ASC"]
+        ],
         "columns" => [
             [
                 "name" => "title",
@@ -61,11 +61,11 @@ return [
                 "type" => "File",
                 "translatable" => true
             ],
-//            [
-//                "name" => "sort",
-//                "title" => "Sort Order",
-//                "type" => "Number"
-//            ],
+            [
+                "name" => "sort",
+                "title" => "Sort Order",
+                "type" => "Number"
+            ],
 //            [
 //                "name" => "viewed",
 //                "title" => "Viewed",
@@ -89,7 +89,7 @@ return [
                         "type" => "Image"
                     ],
                 ],
-                //"order" => "feature_title",
+                "order" => ["feature_title" => "ASC"],
             ],
 
         ]
