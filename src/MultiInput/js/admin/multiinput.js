@@ -77,6 +77,10 @@
         $(row).find('select').val('');
         $(row).find('textarea').html('');
         $(row).find('.multiinput tbody tr:not(:first)').remove();
+        $(row).find('.filemanager-item-removable').each(function(index, element) {
+            var message = $('<div class="filemanager-item-message"><span>Save document and continue!</span></div>');
+                $(element).append(message);
+        });
     }
 
 })();
