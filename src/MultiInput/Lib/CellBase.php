@@ -29,7 +29,7 @@ abstract class CellBase
                 $out[] = $element;
             }
         } else {
-            $value = is_array($this->value) ? print_r($this->value, 1) : $this->value;//todo test
+            $value = is_object($this->value) ? print_r($this->value, 1) : $this->value;//todo test
             $out = $this->renderTranslatable($value);
             $out = [$out];
         }
@@ -54,8 +54,9 @@ abstract class CellBase
                 $out = $this->value->$locale;
                 return $out;
             }
+            return '';
         }
-        return $this->value;
+        return is_string($this->value) ? $this->value : '';
     }
 
 }

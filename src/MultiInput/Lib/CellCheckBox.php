@@ -21,5 +21,16 @@ class CellCheckBox extends CellBase
         return $element;
     }
 
+    public function publish($key = false)
+    {
+        $value = parent::publish($key);
+        if ($key) {
+            return $value;
+        }
+        if ($value) {
+            return $this->config['title'];
+        }
+    }
+
 
 }

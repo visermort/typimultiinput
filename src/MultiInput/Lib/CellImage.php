@@ -32,10 +32,11 @@ class CellImage extends CellBase
 
     public function publish($key = false)
     {
+        $id = parent::publish($key);
         if ($key) {
-            return $this->value;
+            return $id;
         }
-        $file = File::find($this->value);
+        $file = File::find($id);
         if ($file) {
             $templates = Multiinput::getTemplates();
             return view($templates['image'], ['image' => $file, 'group' => Multiinput::$attribute]);

@@ -22,10 +22,13 @@ class CellDropdown extends CellBase
 
     public function publish($key = false)
     {
-        $out = parent::publish($key);
-        if (!$key && isset($this->config['items'][$out])) {
-            $out = $this->config['items'][$out];
+        $id = parent::publish($key);
+        if ($key) {
+            return $id;
         }
-        return $out;
+        if (isset($this->config['items'][$id])) {
+            return $this->config['items'][$id];
+        }
+        return $id;
     }
 }
