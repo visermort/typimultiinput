@@ -16,8 +16,8 @@ return [
         "single-row" => false,
         "title" => "Advantages",
         "order" => [
-            ["sort" => "ASC"],
-            ["title" => "ASC"]
+            "sort" => "ASC",
+            "title" => "ASC"
         ],
         "columns" => [
             [

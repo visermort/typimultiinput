@@ -7,7 +7,7 @@ use Visermort\TypiMultiInput\MultiInput;
 trait HasRows
 {
     public $rows = [];
-    protected $sortableTypes = ['varchar', 'text', 'dropdown', 'numeric', 'date', 'datetime', 'boolean'];
+    protected $sortableTypes = ['varchar', 'text', 'dropdown', 'number', 'date', 'datetime', 'boolean'];
 
     public function makeRows($columnsConfig, $values, $parent)
     {
