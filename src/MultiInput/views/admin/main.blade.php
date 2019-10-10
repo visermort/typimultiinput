@@ -10,4 +10,5 @@
             {!! $body !!}
         </tbody>
     </table>
+    <div class="multiinput-file-message-template"><span>{{ __('multiinput::admin.file-item-message') }}</span></div>
 </div>

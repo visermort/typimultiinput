@@ -77,10 +77,15 @@
         $(row).find('select').val('');
         $(row).find('textarea').html('');
         $(row).find('.multiinput tbody tr:not(:first)').remove();
-        $(row).find('.filemanager-item-removable').each(function(index, element) {
-            var message = $('<div class="filemanager-item-message"><span>Save document and continue!</span></div>');
-                $(element).append(message);
-        });
+        var message = $(row).closest('.multiinput').find('.multiinput-file-message-template');
+        if (message.length) {
+            var newMessageTemplate = $(message[0]).clone();
+            $(newMessageTemplate).removeClass('multiinput-file-message-template').addClass('filemanager-item-message');
+            $(row).find('.filemanager-item-removable').each(function(index, element) {
+                var newMessage = $(newMessageTemplate).clone();
+                $(element).append(newMessage);
+            });
+        }
     }
 
 })();
