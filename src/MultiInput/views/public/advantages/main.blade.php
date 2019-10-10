@@ -1,5 +1,5 @@
 <div class="multiinut {{ $className }}">
-    <div class="multiinput-header">{{ $title }}</div>
+    <h5 class="multiinput-header">{{ $title }}</h5>
     <div class="multiinput-list">
         {!! $rows !!}
     </div>

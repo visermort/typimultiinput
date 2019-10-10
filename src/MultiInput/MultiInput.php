@@ -92,7 +92,7 @@ class MultiInput
             $rows .= view($templates['item'], ['row' => $row]);
         }
         return view($templates['main'], [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
             'rows' => $rows,
             'className' => 'multiinput',
         ]);

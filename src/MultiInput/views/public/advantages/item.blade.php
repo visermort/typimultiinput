@@ -7,7 +7,7 @@
         <div class="multiimput-item-file">{!! $row->document->publish() !!}</div>
         @if ($row->features)
             <div class="multiimput-item-features">
-                <h5>Features</h5>
+                <h6>{{ $row->features->getTitle() }}</h6>
                 @foreach ($row->features->rows as $feature)
                     <div class="multiinput-item multiinput-item-features">
                         <div class="multiinput-item-features-item-title">

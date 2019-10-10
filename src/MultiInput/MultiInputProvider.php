@@ -41,5 +41,7 @@ class MultiInputProvider extends ServiceProvider
             __DIR__.'/js/components' => resource_path('js/components')
         ], 'js');
 
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'multiinput');
+
     }
 }

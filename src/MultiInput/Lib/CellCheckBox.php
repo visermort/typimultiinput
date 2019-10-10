@@ -3,6 +3,7 @@
 namespace Visermort\TypiMultiInput\Lib;
 
 use BootForm;
+use Lang;
 
 class CellCheckBox extends CellBase
 {
@@ -28,7 +29,7 @@ class CellCheckBox extends CellBase
             return $value;
         }
         if ($value) {
-            return $this->config['title'];
+            return Lang::get('db.' . $this->config['title']);
         }
     }
 

@@ -36,7 +36,7 @@ trait HasRows
         }
         $body = view($templates['body'], ['rows' => $rows]);
         return view($templates['main'], [
-            'title' => $this->title,
+            'title' => $this->getTitle(),
             'body' => $body,
             'className' => $this->cssClassName,
             'attribute' => $this->attributeName,

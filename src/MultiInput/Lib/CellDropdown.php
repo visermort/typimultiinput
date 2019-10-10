@@ -2,8 +2,8 @@
 
 namespace Visermort\TypiMultiInput\Lib;
 
-//use TranslatableBootForm;
 use BootForm;
+use Lang;
 
 class CellDropdown extends CellBase
 {
@@ -27,7 +27,7 @@ class CellDropdown extends CellBase
             return $id;
         }
         if (isset($this->config['items'][$id])) {
-            return $this->config['items'][$id];
+            return Lang::get('db.'.$this->config['items'][$id]);
         }
         return $id;
     }

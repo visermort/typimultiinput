@@ -1,6 +1,7 @@
 <?php
 
 namespace Visermort\TypiMultiInput\Lib;
+use Lang;
 
 trait HasValue
 {
@@ -17,6 +18,11 @@ trait HasValue
         $this->value = $value;
         $this->attributeName = $attributeName;
         $this->config = $config;
+    }
+
+    public function getTitle()
+    {
+        return Lang::get('db.'.$this->title);
     }
 
 }
