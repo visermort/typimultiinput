@@ -29,6 +29,10 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
   table {
 
     tr {
+      &:only-child > td.multiinput-elem-remove i{
+        display: none;
+      }
+
       &:not(:last-child) {
         border-bottom: $borderStyle;
       }
@@ -69,7 +73,6 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
             border-bottom: 2px solid #000;
             transform: rotate(-45deg);
             background: #fff;
-            //transition: .2s;
             opacity: 0;
           }
         }
@@ -78,23 +81,28 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
             opacity: 1;
           }
         }
-        .filemanager-item-message {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: #fff;
-          border: 1px solid red;
-          display: flex;
-          align-items: center;
-          text-align: center;
-          color: red;
+        .filemanager-item-trans {
+
+          &.new-item {
+            .filemanager-item-removable,
+            .filemanager-item-addbutton {
+              display: none;
+            }
+            .filemanager-item-message {
+              display: flex;
+            }
+          }
+
+          .filemanager-item-message {
+            display: none;
+            background-color: #fff;
+            border: 1px solid red;
+            align-items: center;
+            text-align: center;
+            color: red;
+          }
         }
       }
     }
-  }
-  &-file-message-template {
-    display: none;
   }
 }

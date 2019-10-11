@@ -32,7 +32,7 @@
 
     $('body').on('click', '.multiinput-elem-remove', function() {
         var tbody = $(this).closest('tbody');
-        if ($(tbody).find('tr').length > 1) {
+        if ($(tbody).children('tr').length > 1) {
             $(this).closest('tr').remove();
             orderRowNumbers(tbody);
         }
@@ -77,15 +77,7 @@
         $(row).find('select').val('');
         $(row).find('textarea').html('');
         $(row).find('.multiinput tbody tr:not(:first)').remove();
-        var message = $(row).closest('.multiinput').find('.multiinput-file-message-template');
-        if (message.length) {
-            var newMessageTemplate = $(message[0]).clone();
-            $(newMessageTemplate).removeClass('multiinput-file-message-template').addClass('filemanager-item-message');
-            $(row).find('.filemanager-item-removable').each(function(index, element) {
-                var newMessage = $(newMessageTemplate).clone();
-                $(element).append(newMessage);
-            });
-        }
+        $(row).find('.filemanager-item-trans').addClass('new-item')
     }
 
 })();

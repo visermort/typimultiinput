@@ -12,7 +12,7 @@
                v-bind:data-language="language"
                v-bind:data-translatable="translatable"
         />
-        <div>
+        <div class="filemanager-item-trans">
             <div v-if="id !== null" class="filemanager-item-removable">
                 <button class="filemanager-item-removable-button" type="button" @click="unsetData">
                     <span class="fa fa-times"></span>
@@ -22,11 +22,12 @@
                     <img class="filemanager-item-image" :src="src" :alt="alt" />
                 </div>
             </div>
-        </div>
-        <div>
-            <button v-if="id === null" @click="openFilepicker" class="btn btn-sm btn-secondary" type="button">
-                <span class="fa fa-plus fa-fw text-white-50"></span> {{ $t('Add') }}
-            </button>
+            <div class="filemanager-item-addbutton" v-if="id === null">
+                <button @click="openFilepicker" class="btn btn-sm btn-secondary" type="button">
+                    <span class="fa fa-plus fa-fw text-white-50"></span> {{ $t('Add') }}
+                </button>
+            </div>
+            <div class="filemanager-item-message"><span>{{ newitemmessage }}</span></div>
         </div>
     </div>
 </template>
@@ -45,6 +46,9 @@ export default {
             type: String,
         },
         translatable: {
+            type: String,
+        },
+        newitemmessage: {
             type: String,
         },
         type: {

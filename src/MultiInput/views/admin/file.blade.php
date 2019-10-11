@@ -5,4 +5,5 @@
         data="{{ $value }}"
         translatable="{{ $translatable }}"
         language="{{ $language }}"
+        newitemmessage="{{ __('multiinput::admin.file-item-message') }}"
 ></multi-input-file-field>
