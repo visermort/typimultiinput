@@ -1,4 +1,5 @@
 $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
+$alarmColor: #dc3545;
 
 .multiinput {
 
@@ -19,7 +20,7 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
     margin-right: 8px;
   }
   &-elem-remove {
-    color: red;
+    color: $alarmColor;
     cursor: pointer;
     text-align: right;
     i {
@@ -96,13 +97,19 @@ $borderStyle: 1px solid rgba(0, 0, 0, 0.125);
           .filemanager-item-message {
             display: none;
             background-color: #fff;
-            border: 1px solid red;
+            border: 1px solid $alarmColor;
             align-items: center;
             text-align: center;
-            color: red;
+            color: $alarmColor;
           }
         }
       }
     }
+  }
+  &-invalid-feedback {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: $alarmColor;
   }
 }

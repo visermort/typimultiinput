@@ -5,7 +5,6 @@
         'min': {'function': validateMin, 'message': ':title must be at least :value'}
     };
 
-
     $('body').on('click', '.btn-lang-js', function() {
 
         var locale = $(this).data('locale');
@@ -86,13 +85,13 @@
     }
 
     function validateRequired(value){
-        return value !== "undefined" && value.length > 0
+        return value && value !== "undefined" && value !== ""
     }
     function validateMax(value, max){
-        return value.length <= max;
+        return !value || value === "undefined" || value.length <= max;
     }
     function validateMin(value, min){
-        return value.length >= min;
+        return value && value !== "undefined" && value.length >= min;
     }
     function renderValidationMessage(template, params){
         for (var param in params) {
@@ -105,15 +104,15 @@
         var formGroup = element.closest('.form-group');
         if (add) {
             element.addClass('is-invalid');
-            var feedback = formGroup.find('.invalid-feedback');
+            var feedback = formGroup.find('.multiinput-invalid-feedback');
             if (!feedback.length) {
-                feedback = $('<div class="invalid-feedback"></div>');
+                feedback = $('<div class="multiinput-invalid-feedback"></div>');
                 feedback.appendTo(formGroup);
             }
             $(feedback).html(message);
         } else {
             element.removeClass('is-invalid');
-            formGroup.find('.invalid-feedback').remove();
+            formGroup.find('.multiinput-invalid-feedback').remove();
         }
     }
 
@@ -128,7 +127,7 @@
                     var messages = [];
                     var messageParams = {'title': element.siblings('label').html()};
                     for (var rule in rules) {
-                        if (typeof validators[rule]['function'] !== "undefined") {
+                        if (typeof validators[rule] !== "undefined" && typeof validators[rule]['function'] !== "undefined") {
                             var result = validators[rule]['function'](element.val(), rules[rule]);
                             if (!result) {
                                 if (typeof rules[rule] != 'object') {
