@@ -56,6 +56,7 @@ class MultiInputRow
             $out .= view($templates['element'], [
                 'element' => $cell->render(),
                 'attribute' => $cell->attributeName,
+                'rules' => !empty($cell->rules) ? json_encode($cell->rules) : false,
             ]);
         }
         return $out;

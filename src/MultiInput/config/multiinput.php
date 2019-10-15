@@ -24,7 +24,8 @@ return [
                 "name" => "title",
                 "title" => "Title",
                 "type" => "Varchar",
-                "translatable" => true
+                "translatable" => true,
+                'rules' => 'required|max:255',
             ],
             [
                 "name" => "description",
@@ -81,7 +82,8 @@ return [
                         "name" => "feature_title",
                         "title" => "Feature Title",
                         "type" => "Varchar",
-                        "translatable" => true
+                        "translatable" => true,
+                        'rules' => 'required|max:255',
                     ],
                     [
                         "name" => "feature_image",

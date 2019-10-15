@@ -48,7 +48,6 @@ class MultiInput
         if (!empty($self->errors)) {
             return implode(', ', $self->errors);
         }
-        //dump($self);
         return $self->view();
     }
 
