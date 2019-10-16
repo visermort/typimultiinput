@@ -81,7 +81,7 @@
         $(row).find('select').val('');
         $(row).find('textarea').html('');
         $(row).find('.multiinput tbody tr:not(:first)').remove();
-        $(row).find('.filemanager-item-trans').addClass('new-item')
+        $(row).find('.filemanager-item-trans').addClass('new-item').closest('td').attr('data-rules', null);
     }
 
     function validateRequired(value){
