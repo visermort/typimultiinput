@@ -128,8 +128,17 @@ For making multi-value fields with recursion.
         ]
     ]  
     ```` 
-    
- ### Available field types
+### Config    
+(All configurations in  /config/multiinput.php.)
+ 
+##### Properties
+
+<b>columns</b> <i>array, for root and columns with type Multiinput, required:</i> The row columns configuration where you can set the properties.<br>
+<b>name</b> <i>string, for column, required:</i> Column name.<br>
+<b>tile</b> <i>string, for root and columns, required:</i> Configuration title, column title. Performs on front as Lang::get('db.'`title`).<br>
+<b>type</b> <i>string, for columns, required:</i> Column type.<br>
+   
+<b>Available field types</b>
  
      Varchar
      Text
@@ -141,6 +150,8 @@ For making multi-value fields with recursion.
      Image
      File
      Multiinput - embedder multiinput field
-     
-     All fields are multilingual.
+<b>translatable</b> <i>boolean, for column:</i> Data of all column types will be stored as multilingual if true.<br>
+<b>order</b> <i>array, for root and column with type Multiinput:</i> Sort order.<br>
+<b>items</b> <i>array, for column with type Dropdown, required:</i> Select options.<br>
+<b>rules</b> <i>string, for column:</i> Validation rules. Validation occurs on front by Js. <b>Available rules</b> `requried, min:value, max:value`.
  
