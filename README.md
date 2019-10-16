@@ -135,7 +135,7 @@ For making multi-value fields with recursion.
 
 <b>columns</b> <i>array, for root and columns with type Multiinput, required:</i> The row columns configuration where you can set the properties.<br>
 <b>name</b> <i>string, for column, required:</i> Column name.<br>
-<b>tile</b> <i>string, for root and columns, required:</i> Configuration title, column title. Performs on front as Lang::get('db.'`title`).<br>
+<b>title</b> <i>string, for root and columns, required:</i> Configuration title, column title. Performs on front as Lang::get('db.'`title`).<br>
 <b>type</b> <i>string, for columns, required:</i> Column type.<br>
    
 <b>Available field types</b>
