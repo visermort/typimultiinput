@@ -35,7 +35,10 @@ trait HasRows
         foreach ($this->rows as $row) {
             $rows[] = $row->render();
         }
-        $body = view($templates['body'], ['rows' => $rows]);
+        $body = view($templates['body'], [
+            'rows' => $rows,
+            'config' => $this->config
+        ]);
         return view($templates['main'], [
             'title' => $this->getTitle(),
             'body' => $body,

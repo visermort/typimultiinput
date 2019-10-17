@@ -19,6 +19,9 @@ $alarmColor: #dc3545;
     cursor: pointer;
     margin-right: 8px;
   }
+  &-elem-clone {
+    cursor: pointer;
+  }
   &-elem-remove {
     color: $alarmColor;
     cursor: pointer;
@@ -30,7 +33,7 @@ $alarmColor: #dc3545;
   table {
 
     tr {
-      &:only-child > td.multiinput-elem-remove-cell {
+      &:only-child > td.multiinput-elem-actions i.multiinput-elem-remove {
         display: none;
       }
 
@@ -101,7 +104,7 @@ $alarmColor: #dc3545;
           }
         }
 
-        &.multiinput-elem-remove-cell {
+        &.multiinput-elem-actions {
           padding: 6px;
         }
       }

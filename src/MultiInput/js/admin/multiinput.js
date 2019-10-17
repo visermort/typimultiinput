@@ -35,6 +35,18 @@
         }
     });
 
+    $('body').on('click', '.multiinput-elem-clone', function(){
+        var tbody = $(this).closest('.multiinput').find('table tbody');
+        var row = $(this).closest('tr');
+        if (tbody.length && row.length) {
+            tbody = tbody[0];
+            var newRow = $(row[0]).clone();
+            $(tbody).append(newRow);
+            hideRowFiles(newRow);
+            orderRowNumbers(tbody)
+        }
+    });
+
     $('body').on('click', '.multiinput-elem-remove', function() {
         if (confirm("Do you really want to delete this item?")) {
             var tbody = $(this).closest('tbody');
@@ -86,6 +98,9 @@
         $(row).find('input[type="checkbox"]').prop('checked', null);
         $(row).find('.multiinput tbody tr:not(:first)').remove();
         $(row).find('.filemanager-item-trans').addClass('new-item').closest('td').attr('data-rules', null);
+    }
+    function hideRowFiles(row) {
+        $(row).find('.filemanager-item-trans').addClass('new-item');
     }
 
     function validateRequired(value){
