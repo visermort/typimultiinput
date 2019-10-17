@@ -79,8 +79,19 @@ For making multi-value fields with recursion.
        $table->json('advantages')->nullable(true);
    });
    ```` 
+3. Update Model class.
   
-3. Write in admin form template
+   ```
+   class Product extends Base
+   {
+       ... 
+       protected $casts = [
+           'advantages' => 'array',
+       ];
+       ...
+   ```
+  
+4. Write in admin form template
  
     ````
     ...
@@ -96,7 +107,7 @@ For making multi-value fields with recursion.
     
     blade templates for admin in directory /resources/views/vendor/multiinput/admin/
     
-4. Write in public template     
+5. Write in public template     
 
      ````
      ...

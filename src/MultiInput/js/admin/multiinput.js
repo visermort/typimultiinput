@@ -36,11 +36,14 @@
     });
 
     $('body').on('click', '.multiinput-elem-remove', function() {
-        var tbody = $(this).closest('tbody');
-        if ($(tbody).children('tr').length > 1) {
-            $(this).closest('tr').remove();
-            orderRowNumbers(tbody);
+        if (confirm("Do you really want to delete this item?")) {
+            var tbody = $(this).closest('tbody');
+            if ($(tbody).children('tr').length > 1) {
+                $(this).closest('tr').remove();
+                orderRowNumbers(tbody);
+            }
         }
+
     });
 
     function orderRowNumbers(tbody) {
@@ -80,6 +83,7 @@
         $(row).find('input').val('');
         $(row).find('select').val('');
         $(row).find('textarea').html('');
+        $(row).find('input[type="checkbox"]').prop('checked', null);
         $(row).find('.multiinput tbody tr:not(:first)').remove();
         $(row).find('.filemanager-item-trans').addClass('new-item').closest('td').attr('data-rules', null);
     }

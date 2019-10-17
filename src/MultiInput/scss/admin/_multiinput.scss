@@ -30,13 +30,10 @@ $alarmColor: #dc3545;
   table {
 
     tr {
-      &:only-child > td.multiinput-elem-remove i{
+      &:only-child > td.multiinput-elem-remove-cell {
         display: none;
       }
 
-      &:not(:last-child) {
-        border-bottom: $borderStyle;
-      }
       td {
         vertical-align: top;
 
@@ -102,6 +99,10 @@ $alarmColor: #dc3545;
             text-align: center;
             color: $alarmColor;
           }
+        }
+
+        &.multiinput-elem-remove-cell {
+          padding: 6px;
         }
       }
     }

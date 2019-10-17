@@ -2,7 +2,9 @@
     <tr class="multiinput-row">
         {!! $row !!}
         @if (empty($config['single-row']))
-            <td class="multiinput-elem-remove" title="{{ __('multiinput::admin.remove-item') }} "><i class="fa fa-lg fa-minus-circle"></i></td>
+            <td class="multiinput-elem-remove-cell">
+                <i title="{{ __('multiinput::admin.remove-item') }} " class="fa fa-lg fa-minus-circle multiinput-elem-remove"></i>
+            </td>
         @endif
     </tr>
 @endforeach

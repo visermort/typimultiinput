@@ -127,11 +127,12 @@ class MultiInput
         }
         $self->initValueOwner(
             __(isset($self->config['title']) ? $self->config['title'] : ucfirst($attribute)), //title
-            $model->$attribute ? json_decode($model->$attribute) : false, //values
+            $model->$attribute ? json_decode(json_encode($model->$attribute)) : false, //values
             $attribute, //full attributa
             $config, //config
             'multiinput multiinput-' . $attribute// css class
         );
+        $self->root = true;
         $self->makeRows($self->config['columns'], $self->value, $self);
         return $self;
     }
