@@ -36,6 +36,9 @@ $alarmColor: #dc3545;
       &:only-child > td.multiinput-elem-actions i.multiinput-elem-remove {
         display: none;
       }
+      &:only-child > td.sortable-handle {
+        display: none;
+      }
 
       td {
         vertical-align: top;

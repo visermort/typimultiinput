@@ -1,5 +1,8 @@
 @foreach ($rows as $row)
     <tr class="multiinput-row">
+        @if (!empty($config['sort-enable']))
+            <td class="sortable-handle"><i class="fa fa-sort"></i></td>
+        @endif
         {!! $row !!}
         @if (empty($config['single-row']) || !empty($config['clone-enable']) )
             <td class="multiinput-elem-actions">

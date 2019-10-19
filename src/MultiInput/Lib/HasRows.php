@@ -45,6 +45,7 @@ trait HasRows
             'className' => $this->cssClassName,
             'attribute' => $this->attributeName,
             'root' => $this->root,
+            'config' => $this->config,
         ]);
     }
 

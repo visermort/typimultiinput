@@ -146,7 +146,7 @@ For making multi-value fields with recursion.
 
 <b>columns</b> <i>array, for root and columns with type Multiinput, required:</i> The row columns configuration where you can set the properties.<br>
 <b>name</b> <i>string, for column, required:</i> Column name.<br>
-<b>tile</b> <i>string, for root and columns, required:</i> Configuration title, column title. Performs on front as Lang::get('db.'`title`).<br>
+<b>title</b> <i>string, for root and columns, required:</i> Configuration title, column title. Performs on front as Lang::get('db.'`title`).<br>
 <b>type</b> <i>string, for columns, required:</i> Column type.<br>
    
 <b>Available field types</b>
@@ -162,9 +162,10 @@ For making multi-value fields with recursion.
      File
      Multiinput - embedder multiinput field
 <b>translatable</b> <i>boolean, for column:</i> Data of all column types will be stored as multilingual if true.<br>
-<b>order</b> <i>array, for root and column with type Multiinput:</i> Sort order.<br>
+<b>order</b> <i>array, for root and column with type Multiinput:</i> Sort order (on front).<br>
 <b>items</b> <i>array, for column with type Dropdown, required:</i> Select options.<br>
-<b>rules</b> <i>string, for column:</i> Validation rules. Validation occurs on front by Js. <b>Available rules</b> `requried, min:value, max:value`.<br>
-<b>clone-enable</b> <i>string, for column with type Dropdown:</i> Makes "Clone Item" button.<br>
-<b>single-row</b> <i>string, for column with type Dropdown:</i> Makes "Add Item" button if <i>false</i> or empty.<br>
+<b>rules</b> <i>string, for column:</i> Validation rules. Validation occurs on front by Js. <b>Available rules</b> `requried, min:value, max:value`. Enabled more than one rule `required|max:100`.<br>
+<b>clone-enable</b> <i>booldean, for root and column with type Multiinput:</i> Makes "Clone Item" button.<br>
+<b>single-row</b> <i>boolean, for root and column with type Multiinput:</i> Makes "Add Item" button if <i>false</i> or empty.<br>
+<b>sort-enable</b> <i>boolean, for root and column with type Multiinput:</i> Enable rows sorting by drag&drop on an admin form.<br>
  

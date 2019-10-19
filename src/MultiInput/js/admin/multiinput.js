@@ -1,3 +1,5 @@
+import Sortable, { MultiDrag, Swap } from 'sortablejs';
+
 (function(){
     var validators = {
         'required': {'function':validateRequired, 'message': ':title is required'},
@@ -172,6 +174,16 @@
                 return true;
             }
             return false;
+        });
+
+        $('.sortable tbody').each(function(index, tbody){
+            new Sortable(tbody, {
+                handle: '.sortable-handle',
+                animation: 150,
+                onSort: function (/**Event*/evt) {
+                    orderRowNumbers(tbody)
+                },
+            });
         });
     });
 
