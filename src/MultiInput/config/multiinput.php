@@ -19,6 +19,8 @@ return [
             "sort" => "ASC",
             "title" => "ASC"
         ],
+        "clone-enable" => true,
+        "sort-enable" => true,
         "columns" => [
             [
                 "name" => "title",

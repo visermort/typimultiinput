@@ -1,3 +1,5 @@
+import Sortable, { MultiDrag, Swap } from 'sortablejs';
+
 (function(){
     var validators = {
         'required': {'function':validateRequired, 'message': ':title is required'},
@@ -35,12 +37,27 @@
         }
     });
 
-    $('body').on('click', '.multiinput-elem-remove', function() {
-        var tbody = $(this).closest('tbody');
-        if ($(tbody).children('tr').length > 1) {
-            $(this).closest('tr').remove();
-            orderRowNumbers(tbody);
+    $('body').on('click', '.multiinput-elem-clone', function(){
+        var tbody = $(this).closest('.multiinput').find('table tbody');
+        var row = $(this).closest('tr');
+        if (tbody.length && row.length) {
+            tbody = tbody[0];
+            var newRow = $(row[0]).clone();
+            $(tbody).append(newRow);
+            hideRowFiles(newRow);
+            orderRowNumbers(tbody)
         }
+    });
+
+    $('body').on('click', '.multiinput-elem-remove', function() {
+        if (confirm("Do you really want to delete this item?")) {
+            var tbody = $(this).closest('tbody');
+            if ($(tbody).children('tr').length > 1) {
+                $(this).closest('tr').remove();
+                orderRowNumbers(tbody);
+            }
+        }
+
     });
 
     function orderRowNumbers(tbody) {
@@ -80,8 +97,12 @@
         $(row).find('input').val('');
         $(row).find('select').val('');
         $(row).find('textarea').html('');
+        $(row).find('input[type="checkbox"]').prop('checked', null);
         $(row).find('.multiinput tbody tr:not(:first)').remove();
         $(row).find('.filemanager-item-trans').addClass('new-item').closest('td').attr('data-rules', null);
+    }
+    function hideRowFiles(row) {
+        $(row).find('.filemanager-item-trans').addClass('new-item');
     }
 
     function validateRequired(value){
@@ -153,6 +174,16 @@
                 return true;
             }
             return false;
+        });
+
+        $('.sortable tbody').each(function(index, tbody){
+            new Sortable(tbody, {
+                handle: '.sortable-handle',
+                animation: 150,
+                onSort: function (/**Event*/evt) {
+                    orderRowNumbers(tbody)
+                },
+            });
         });
     });
 

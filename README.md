@@ -3,7 +3,7 @@
 
 Extension for [TypiCMS](https://github.com/TypiCMS/Base).
 
-For making multi-value fields with recursion.
+For making multi-value fields.
 
 [TypiCMS](https://github.com/TypiCMS/Base) is a modular multilingual content management system built with [Laravel 6](https://laravel.com). Out of the box you can manage pages, events, news, places, menus, translations, etc.
 
@@ -79,8 +79,19 @@ For making multi-value fields with recursion.
        $table->json('advantages')->nullable(true);
    });
    ```` 
+3. Update Model class.
   
-3. Write in admin form template
+   ```
+   class Product extends Base
+   {
+       ... 
+       protected $casts = [
+           'advantages' => 'array',
+       ];
+       ...
+   ```
+  
+4. Write in admin form template
  
     ````
     ...
@@ -96,7 +107,7 @@ For making multi-value fields with recursion.
     
     blade templates for admin in directory /resources/views/vendor/multiinput/admin/
     
-4. Write in public template     
+5. Write in public template     
 
      ````
      ...
@@ -151,7 +162,10 @@ For making multi-value fields with recursion.
      File
      Multiinput - embedder multiinput field
 <b>translatable</b> <i>boolean, for column:</i> Data of all column types will be stored as multilingual if true.<br>
-<b>order</b> <i>array, for root and column with type Multiinput:</i> Sort order.<br>
+<b>order</b> <i>array, for root and column with type Multiinput:</i> Sort order (on front).<br>
 <b>items</b> <i>array, for column with type Dropdown, required:</i> Select options.<br>
-<b>rules</b> <i>string, for column:</i> Validation rules. Validation occurs on front by Js. <b>Available rules</b> `requried, min:value, max:value`.
+<b>rules</b> <i>string, for column:</i> Validation rules. Validation occurs on front by Js. <b>Available rules</b> `requried, min:value, max:value`. Enabled more than one rule `required|max:100`.<br>
+<b>clone-enable</b> <i>booldean, for root and column with type Multiinput:</i> Makes "Clone Item" button.<br>
+<b>single-row</b> <i>boolean, for root and column with type Multiinput:</i> Makes "Add Item" button if <i>false</i> or empty.<br>
+<b>sort-enable</b> <i>boolean, for root and column with type Multiinput:</i> Enable rows sorting by drag&drop on an admin form.<br>
  

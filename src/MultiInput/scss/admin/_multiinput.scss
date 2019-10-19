@@ -19,6 +19,9 @@ $alarmColor: #dc3545;
     cursor: pointer;
     margin-right: 8px;
   }
+  &-elem-clone {
+    cursor: pointer;
+  }
   &-elem-remove {
     color: $alarmColor;
     cursor: pointer;
@@ -30,13 +33,13 @@ $alarmColor: #dc3545;
   table {
 
     tr {
-      &:only-child > td.multiinput-elem-remove i{
+      &:only-child > td.multiinput-elem-actions i.multiinput-elem-remove {
+        display: none;
+      }
+      &:only-child > td.sortable-handle {
         display: none;
       }
 
-      &:not(:last-child) {
-        border-bottom: $borderStyle;
-      }
       td {
         vertical-align: top;
 
@@ -102,6 +105,14 @@ $alarmColor: #dc3545;
             text-align: center;
             color: $alarmColor;
           }
+        }
+
+        &.multiinput-elem-actions {
+          padding: 6px;
+        }
+
+        &.sortable-handle {
+          cursor: move;
         }
       }
     }
