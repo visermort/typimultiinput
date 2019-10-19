@@ -110,6 +110,10 @@ $alarmColor: #dc3545;
         &.multiinput-elem-actions {
           padding: 6px;
         }
+
+        &.sortable-handle {
+          cursor: move;
+        }
       }
     }
   }
