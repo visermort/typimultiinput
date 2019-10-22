@@ -8,13 +8,11 @@ abstract class CellBase
 {
     use HasValue;
 
-    protected $parent;
 
     public function __construct($parent, $config, $value)
     {
-        $this->parent = $parent;
-        $attributeName = $parent->attributeName.'['.$config['name'].']';
-        $cssClassName = $parent->parent->cssClassName.'-'.$config['name'];
+        $attributeName = $parent->getAttributeName().'['.$config['name'].']';
+        $cssClassName = $parent->parent->getCssClassName().'-'.$config['name'];
         $this->initValueOwner($config['title'], $value, $attributeName, $config, $cssClassName);
     }
 
@@ -24,12 +22,12 @@ abstract class CellBase
         $out = [];
         if (!empty($this->config['translatable'])) {
             foreach ($languages as $language) {
-                $value = !empty($this->value)  && property_exists($this->value, $language) ? $this->value->$language : false;
+                $value = !empty($this->value)  && in_array($language, array_keys($this->value)) ? $this->value[$language] : false;
                 $element = $this->renderTranslatable($value, $language);
                 $out[] = $element;
             }
         } else {
-            $value = is_object($this->value) ? print_r($this->value, 1) : $this->value;//todo test
+            $value = is_array($this->value) ? print_r($this->value, 1) : $this->value;//todo test
             $out = $this->renderTranslatable($value);
             $out = [$out];
         }
@@ -48,10 +46,10 @@ abstract class CellBase
         if (empty($this->value)) {
             return '';
         }
-        if (!empty($this->config['translatable']) && is_object($this->value)) {
+        if (!empty($this->config['translatable']) && is_array($this->value)) {
             $locale = App::getLocale();
-            if (property_exists($this->value, $locale)) {
-                $out = $this->value->$locale;
+            if (in_array($locale, array_keys($this->value))) {
+                $out = $this->value[$locale];
                 return $out;
             }
             return '';

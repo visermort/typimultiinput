@@ -7,12 +7,13 @@ use Visermort\TypiMultiInput\MultiInput;
 trait HasRows
 {
     public $rows = [];
+
     protected $root = false;
     protected $sortableTypes = ['varchar', 'text', 'dropdown', 'number', 'date', 'datetime', 'boolean'];
 
     public function makeRows($columnsConfig, $values, $parent)
     {
-        if (!$values || !count($values)) {
+        if (!$values || !count($values) || !is_array($values)) {
             $this->rows[] = new MultiInputRow($parent, $columnsConfig, 0, null);
         } else {
             $index = 0;
@@ -49,7 +50,7 @@ trait HasRows
         ]);
     }
 
-    private function sort()
+    protected function sort()
     {
         if (empty($this->config['order']) || count($this->rows) < 2) {
             return ;
@@ -61,7 +62,7 @@ trait HasRows
                 $order = strtolower($order);
                 $direction = strtolower($direction) == 'desc' ? 'desc' : 'asc';
                 if (property_exists($row, $order) &&
-                    in_array(strtolower($row->$order->config['type']), $this->sortableTypes)) {
+                    in_array(strtolower($row->$order->getConfig()['type']), $this->sortableTypes)) {
                     $value = $row->$order->publish();
                     $nextValue = $nextRow->$order->publish();
                     if ($value > $nextValue) {

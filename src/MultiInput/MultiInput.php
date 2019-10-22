@@ -42,9 +42,9 @@ class MultiInput
      * @param $model
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public static function render($attribute, $configName, $model)
+    public static function render($attribute, $configName, $model, $configUpdate = [])
     {
-        $self = self::make($attribute, $configName, $model);
+        $self = self::make($attribute, $configName, $model, $configUpdate);
         if (!empty($self->errors)) {
             return implode(', ', $self->errors);
         }
@@ -60,10 +60,10 @@ class MultiInput
      * @param array $options
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
      */
-    public static function publish($attribute, $configName, $model, $options = [])
+    public static function publish($attribute, $configName, $model, $configUpdate = [], $options = [])
     {
         self::$admin = false;
-        $self = self::make($attribute, $configName, $model);
+        $self = self::make($attribute, $configName, $model, $configUpdate);
         if ($self->errors || !$self->value) {
             return '';
         }
@@ -117,17 +117,21 @@ class MultiInput
      * @param $model
      * @return MultiInput
      */
-    public static function make($attribute, $configName, $model)
+    public static function make($attribute, $configName, $model, $configUpdate)
     {
         self::$attribute = $attribute;
         $self = new self();
         $config = $self->getConfig($configName);
-        if (!$config) {
+        $config = array_merge_recursive(
+            is_array($config) ? $config : [],
+            is_array($configUpdate) ? $configUpdate : []
+        );
+        if (empty($config)) {
             return null;
         }
         $self->initValueOwner(
             __(isset($self->config['title']) ? $self->config['title'] : ucfirst($attribute)), //title
-            $model->$attribute ? json_decode(json_encode($model->$attribute)) : false, //values
+            $model->$attribute ? $model->$attribute : false, //values
             $attribute, //full attributa
             $config, //config
             'multiinput multiinput-' . $attribute// css class
