@@ -6,12 +6,12 @@ use Lang;
 
 trait HasValue
 {
-    public $title;
-    public $value;
-    public $attributeName;
-    public $config;
-    public $cssClassName;
-    public $rules;
+    protected $title;
+    protected $value;
+    protected $attributeName;
+    protected $config;
+    protected $cssClassName;
+    protected $rules;
 
     protected function initValueOwner($title, $value, $attributeName, $config, $cssClassName)
     {
@@ -28,6 +28,23 @@ trait HasValue
     {
         return Lang::get('db.'.$this->title);
     }
+    public function getAttributeName()
+    {
+        return $this->attributeName;
+    }
+    public function getCssClassName()
+    {
+        return $this->cssClassName;
+    }
+    public function getRules()
+    {
+        return !empty($this->rules) ? $this->rules : false;
+    }
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
 
     protected function makeRules($config)
     {

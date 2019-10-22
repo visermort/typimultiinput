@@ -8,13 +8,11 @@ abstract class CellBase
 {
     use HasValue;
 
-    protected $parent;
 
     public function __construct($parent, $config, $value)
     {
-        $this->parent = $parent;
-        $attributeName = $parent->attributeName.'['.$config['name'].']';
-        $cssClassName = $parent->parent->cssClassName.'-'.$config['name'];
+        $attributeName = $parent->getAttributeName().'['.$config['name'].']';
+        $cssClassName = $parent->parent->getCssClassName().'-'.$config['name'];
         $this->initValueOwner($config['title'], $value, $attributeName, $config, $cssClassName);
     }
 

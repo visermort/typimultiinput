@@ -6,10 +6,10 @@ use Visermort\TypiMultiInput\MultiInput;
 
 class MultiInputRow
 {
-    public $attributeName;
     public $columns;
     public $parent;
 
+    protected $attributeName;
     protected $config;
     protected $value;
     protected $index;
@@ -33,7 +33,7 @@ class MultiInputRow
         $this->config = $config;
         $this->value = $value;
         $this->index = $index;
-        $this->attributeName = $parent->attributeName.'['.$index.']';
+        $this->attributeName = $parent->getAttributeName().'['.$index.']';
         foreach ($config as $key => $column) {
             $columnType = strtolower($column['type']);
             $columnValue = $value && in_array($key, array_keys($value)) ? $value[$key] : null;
@@ -55,10 +55,15 @@ class MultiInputRow
         foreach ($this->columns as $cell) {
             $out .= view($templates['element'], [
                 'element' => $cell->render(),
-                'attribute' => $cell->attributeName,
-                'rules' => !empty($cell->rules) ? json_encode($cell->rules) : false,
+                'attribute' => $cell->getAttributeName(),
+                'rules' => $cell->getRules() ? json_encode($cell->getRules()) : false,
             ]);
         }
         return $out;
+    }
+
+    public function getAttributeName()
+    {
+        return $this->attributeName;
     }
 }
