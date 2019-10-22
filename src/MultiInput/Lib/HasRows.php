@@ -12,7 +12,7 @@ trait HasRows
 
     public function makeRows($columnsConfig, $values, $parent)
     {
-        if (!$values || !count($values)) {
+        if (!$values || !count($values) || !is_array($values)) {
             $this->rows[] = new MultiInputRow($parent, $columnsConfig, 0, null);
         } else {
             $index = 0;

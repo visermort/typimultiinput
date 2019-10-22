@@ -36,7 +36,7 @@ class MultiInputRow
         $this->attributeName = $parent->attributeName.'['.$index.']';
         foreach ($config as $key => $column) {
             $columnType = strtolower($column['type']);
-            $columnValue = $value && property_exists($value, $key) ? $value->$key : null;
+            $columnValue = $value && in_array($key, array_keys($value)) ? $value[$key] : null;
             $cellClassName = isset($this->cellTypes[$columnType]) ?
                 $this->cellTypes[$columnType] : CellVarchar::class;
 

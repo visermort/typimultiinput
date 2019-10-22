@@ -103,7 +103,9 @@ For making multi-value fields.
     ```` 
     argument1 "advantages" - Model attribute name<br>
     argument2 "advantages" - configuration name<br>
-    argument3 $model - Model
+    argument3 $model - Model<br>
+    argument4, not required, default [] - config updates, for example:<br> 
+    ` ['columns' => ['templates' => ['items' => TypiCMS::templates()]]] `<br>
     
     blade templates for admin in directory /resources/views/vendor/multiinput/admin/
     
@@ -120,12 +122,12 @@ For making multi-value fields.
      ...
      <div class="advantages">
         <h5>Advantages</h5>
-        {!! MultiInput::publish('advantages', 'advantages', $model->present(), ['templates' => ['file'=>'other_file', 'main'=>'other_main']]) !!}
+        {!! MultiInput::publish('advantages', 'advantages', $model->present(), [], ['templates' => ['file'=>'other_file', 'main'=>'other_main']]) !!}
      </div>
      ...
  
      ```` 
-    argument4 - params. Not required 
+    argument5 - params. Not required 
 
     Default templates in /resources/views/vendor/multiinput/public/<attribute name>. Can be override in params
     ```` 
